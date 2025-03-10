@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
 import FeaturedProducts from "./FeaturedProducts";
+import CoffeeBeans from "./CoffeeBeans";
 import InfoSection from "./InfoSection";
 import Footer from "./Footer";
 
@@ -22,6 +23,7 @@ function Home() {
       <Navbar isScrolled={isScrolled} />
       <HeroSection />
       <FeaturedProducts />
+      <CoffeeBeans />
       <InfoSection />
       <Footer />
     </div>
