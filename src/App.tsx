@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { useRoutes, Routes, Route } from "react-router-dom";
 import Home from "./components/home";
+import MenuPage from "./pages/MenuPage";
 import routes from "tempo-routes";
 
 function App() {
@@ -9,6 +10,8 @@ function App() {
       <>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/menu/:category" element={<MenuPage />} />
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
       </>

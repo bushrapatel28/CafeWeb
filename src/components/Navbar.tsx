@@ -9,7 +9,9 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
-import { Coffee, ShoppingBag } from "lucide-react";
+import { Coffee } from "lucide-react";
+import CartDrawer from "./cart/CartDrawer";
+import UserMenu from "./user/UserMenu";
 
 interface NavbarProps {
   onOrderClick?: () => void;
@@ -54,6 +56,12 @@ const Navbar = ({
                   <div className="grid grid-cols-2 gap-2">
                     <NavigationMenuLink
                       className="block p-3 hover:bg-gray-100 rounded-md"
+                      href="/menu"
+                    >
+                      Full Menu
+                    </NavigationMenuLink>
+                    <NavigationMenuLink
+                      className="block p-3 hover:bg-gray-100 rounded-md"
                       href="/menu/coffee"
                     >
                       Coffee
@@ -69,12 +77,6 @@ const Navbar = ({
                       href="/menu/breakfast"
                     >
                       Breakfast
-                    </NavigationMenuLink>
-                    <NavigationMenuLink
-                      className="block p-3 hover:bg-gray-100 rounded-md"
-                      href="/menu/lunch"
-                    >
-                      Lunch
                     </NavigationMenuLink>
                   </div>
                 </div>
@@ -101,14 +103,11 @@ const Navbar = ({
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Order Button */}
-        <Button
-          onClick={onOrderClick}
-          className="bg-primary hover:bg-primary/90"
-        >
-          <ShoppingBag className="mr-2 h-4 w-4" />
-          Order Online
-        </Button>
+        {/* User and Cart */}
+        <div className="flex items-center space-x-4">
+          <CartDrawer />
+          <UserMenu />
+        </div>
       </div>
     </nav>
   );

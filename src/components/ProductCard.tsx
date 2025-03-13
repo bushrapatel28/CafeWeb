@@ -8,8 +8,10 @@ import {
   CardTitle,
 } from "./ui/card";
 import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 interface ProductCardProps {
+  id?: string;
   name: string;
   price: number;
   image: string;
@@ -18,12 +20,30 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({
+  id = crypto.randomUUID(),
   name = "Classic Espresso",
   price = 4.99,
   image = "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=300&h=300",
   description = "Rich and bold espresso shot made from premium coffee beans",
-  onAddToCart = () => console.log("Add to cart clicked"),
+  onAddToCart,
 }: ProductCardProps) => {
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    addItem({
+      id,
+      name,
+      price,
+      image,
+      description,
+      quantity: 1,
+    });
+
+    if (onAddToCart) {
+      onAddToCart();
+    }
+  };
+
   return (
     <Card className="w-[280px] h-[380px] bg-white overflow-hidden flex flex-col">
       <div className="relative w-full h-48 overflow-hidden">
@@ -44,7 +64,7 @@ const ProductCard = ({
       </CardContent>
       <CardFooter className="mt-auto p-4">
         <Button
-          onClick={onAddToCart}
+          onClick={handleAddToCart}
           className="w-full bg-primary hover:bg-primary/90"
         >
           <ShoppingCart className="mr-2 h-4 w-4" />
