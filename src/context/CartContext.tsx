@@ -31,6 +31,9 @@ const CART_STORAGE_KEY = "brew-haven-cart";
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [deliveryMethod, setDeliveryMethod] = useState<"pickup" | "delivery">(
+    "pickup",
+  );
   const { user } = useAuth();
 
   // Load cart from localStorage on initial render
@@ -115,6 +118,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
             items,
             userId: user.id,
             returnUrl: window.location.origin,
+            deliveryMethod,
           },
         },
       );
@@ -147,6 +151,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     subtotal,
     checkout,
     isCheckingOut,
+    deliveryMethod,
+    setDeliveryMethod,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

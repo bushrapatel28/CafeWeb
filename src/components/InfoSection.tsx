@@ -27,27 +27,6 @@ const InfoSection = ({
           <Card className="bg-white shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl font-bold text-primary">
-                <Clock className="h-6 w-6" />
-                Hours of Operation
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {hours.map((item, index) => (
-                  <div key={index} className="flex justify-between">
-                    <span className="font-medium text-gray-700">
-                      {item.day}
-                    </span>
-                    <span className="text-gray-600">{item.hours}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-white shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-2xl font-bold text-primary">
                 <MapPin className="h-6 w-6" />
                 Location & Contact
               </CardTitle>
@@ -65,6 +44,26 @@ const InfoSection = ({
                     {phone}
                   </p>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="bg-white shadow-lg">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-2xl font-bold text-primary">
+                <Clock className="h-6 w-6" />
+                Hours of Operation
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {hours.map((item, index) => (
+                  <div key={index} className="flex justify-between">
+                    <span className="font-medium text-gray-700">
+                      {item.day}
+                    </span>
+                    <span className="text-gray-600">{item.hours}</span>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>

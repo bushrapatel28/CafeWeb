@@ -16,7 +16,12 @@ serve(async (req) => {
 
   try {
     // Get request data
-    const { items, userId, returnUrl } = await req.json();
+    const {
+      items,
+      userId,
+      returnUrl,
+      deliveryMethod = "pickup",
+    } = await req.json();
 
     // Initialize Supabase client
     const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
@@ -62,6 +67,21 @@ serve(async (req) => {
 
     if (orderError) throw orderError;
 
+    // Add delivery fee if delivery method is selected
+    if (deliveryMethod === "delivery") {
+      lineItems.push({
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: "Delivery Fee",
+            description: "Fee for home delivery service",
+          },
+          unit_amount: 399, // $3.99 delivery fee
+        },
+        quantity: 1,
+      });
+    }
+
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
@@ -72,6 +92,7 @@ serve(async (req) => {
       metadata: {
         order_id: order.id,
         user_id: userId,
+        delivery_method: deliveryMethod,
       },
     });
 

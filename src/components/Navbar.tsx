@@ -36,6 +36,10 @@ const Navbar = ({
           <Coffee className="h-6 w-6 text-primary" />
           <span className="text-xl font-bold text-gray-900">{logoText}</span>
         </div>
+        <div className="flex items-center space-x-4">
+          <CartDrawer />
+          <UserMenu />
+        </div>
 
         {/* Navigation Links */}
         <NavigationMenu>
@@ -104,10 +108,6 @@ const Navbar = ({
         </NavigationMenu>
 
         {/* User and Cart */}
-        <div className="flex items-center space-x-4">
-          <CartDrawer />
-          <UserMenu />
-        </div>
       </div>
     </nav>
   );

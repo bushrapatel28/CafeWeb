@@ -13,6 +13,7 @@ import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext";
 import CartItem from "./CartItem";
 import AuthModal from "../auth/AuthModal";
+import DeliveryOptions from "./DeliveryOptions";
 
 interface CartDrawerProps {
   trigger?: React.ReactNode;
@@ -77,6 +78,8 @@ const CartDrawer = ({ trigger }: CartDrawerProps) => {
                 <p>Subtotal</p>
                 <p>${subtotal.toFixed(2)}</p>
               </div>
+
+              {user && <DeliveryOptions className="mt-4" />}
 
               {user ? (
                 <Button
