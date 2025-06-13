@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
 import FeaturedProducts from "./FeaturedProducts";
 import CoffeeBeans from "./CoffeeBeans";
+import Suppliers from "./Suppliers";
 import InfoSection from "./InfoSection";
 import Footer from "./Footer";
 
@@ -24,6 +25,7 @@ function Home() {
       <HeroSection />
       <FeaturedProducts />
       <CoffeeBeans />
+      <Suppliers />
       <InfoSection />
       <Footer />
     </div>
