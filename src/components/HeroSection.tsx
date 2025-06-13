@@ -85,13 +85,23 @@ const HeroSection = ({
               </SelectContent>
             </Select>
 
-            <Button
-              size="lg"
-              onClick={() => onCtaClick()}
-              className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full"
-            >
-              {ctaText}
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                size="lg"
+                onClick={() => onCtaClick()}
+                className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full"
+              >
+                {ctaText}
+              </Button>
+              <Button
+                size="lg"
+                onClick={() => (window.location.href = "/suppliers")}
+                variant="outline"
+                className="text-lg px-8 py-6 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 font-semibold rounded-full"
+              >
+                View Suppliers
+              </Button>
+            </div>
           </div>
         </motion.div>
       </div>

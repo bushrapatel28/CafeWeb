@@ -95,6 +95,15 @@ const Navbar = ({
             <NavigationMenuItem>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
+                href="/suppliers"
+              >
+                Suppliers
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
                 href="/contact"
               >
                 Contact
