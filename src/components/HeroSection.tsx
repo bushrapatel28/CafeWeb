@@ -25,7 +25,7 @@ const HeroSection = ({
   onCtaClick = (grind) => console.log("CTA clicked with grind:", grind),
 }: HeroSectionProps) => {
   return (
-    <div className="relative h-[800px] w-full bg-neutral-900 overflow-hidden">
+    <div className="relative h-[800px] w-full bg-neutral-900 overflow-hidden p-4">
       <motion.div
         initial={{ scale: 1.1 }}
         animate={{ y: [0, -30, 0] }}
