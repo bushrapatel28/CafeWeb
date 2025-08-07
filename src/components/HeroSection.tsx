@@ -46,13 +46,12 @@ const HeroSection = ({
           }}
         />
       </motion.div>
-
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 flex flex-row"
         >
           {shopName}
         </motion.h1>
@@ -95,7 +94,6 @@ const HeroSection = ({
           </div>
         </motion.div>
       </div>
-
       <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-neutral-900 to-transparent" />
     </div>
   );
